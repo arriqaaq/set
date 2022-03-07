@@ -119,3 +119,13 @@ func TestSet_SKeyExists(t *testing.T) {
 	exists2 := set.SKeyExists(key)
 	assert.Equal(t, exists2, false)
 }
+
+func TestSet_Keys(t *testing.T) {
+	set := New()
+	set.SAdd("k1", "a")
+	set.SAdd("k2", "b")
+	set.SAdd("k3", "c")
+
+	n := set.Keys()
+	assert.Equal(t, 3, len(n))
+}
