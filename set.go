@@ -432,13 +432,9 @@ func (s *Set) fieldExists(key string, field interface{}) bool {
 }
 
 func (s *Set) Keys() []string {
-	keys := make([]string, len(s.records))
-
-	i := 0
+	keys := make([]string, 0, len(s.records))
 	for k := range s.records {
-		keys[i] = k
-		i++
+		keys = append(keys, k)
 	}
-
 	return keys
 }
